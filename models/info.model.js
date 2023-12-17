@@ -1,4 +1,4 @@
-import { INTEGER, STRING } from 'sequelize';
+import { FLOAT, INTEGER, STRING } from 'sequelize';
 import { database } from '../config/context/database.js';
 import { UserModel } from './user.model.js';
 
@@ -38,6 +38,10 @@ const InfoModel = database.define(
         type: INTEGER,
         allowNull: false,
         },
+    saldo: { //type float
+      type: FLOAT,
+      allowNull:false,
+    },
     niss: {
         type: INTEGER,
         allowNull: false,   
