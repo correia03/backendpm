@@ -17,3 +17,12 @@ export const addrotas = async (req, res) => {
     return res.status(500).json({ message: "Internal Server Error" });
   }
 };
+//get origem desino hora preço
+export const getrotas = async (req, res) => {
+  try {
+    const rotas = await RotasModel.findAll();
+    return res.status(200).json(rotas);
+  } catch (error) {
+    return res.status(500).json({ message: "Internal Server Error" });
+  }
+};
