@@ -28,3 +28,12 @@ export const addcompra = async (req, res) => {
     return res.status(500).json({ message: "Internal Server Error" });
   }
 };
+//get compras
+export const getcompras = async (req, res) => {
+  try {
+    const compras = await Compras.findAll();
+    return res.status(200).json(compras);
+  } catch (error) {
+    return res.status(500).json({ message: "Internal Server Error" });
+  }
+};

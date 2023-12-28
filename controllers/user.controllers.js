@@ -5,15 +5,21 @@ import {createToken} from '../util/jwt.js';
 export const register = async (req, res) => {
     const { username, password } = req.body;
   
-    if (!username || !password)
-      return res.status(405)
+    if (!username || !password) {
+      return res.status(400).json({ message: 'Username and password are required' });
+    }
+    
   
-    const user = await UserModel.create({
-      username: username,
-      password,
-    });
-  
-    return res.json(user);
+    try {
+      const user = await UserModel.create({
+        username: username,
+        password,
+      });
+      return res.json(user);
+    } catch (error) {
+      console.error(error);
+      return res.status(500).json({ message: 'Internal Server Error' });
+    }
   };
 
 export const login = async (req, res) => {

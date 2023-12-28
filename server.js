@@ -11,7 +11,7 @@ import { database } from './config/context/database.js';
 const server = express();
 
 // client can be postman | react website | react localhost link | etc
-const clientURL = 'http://localhost:3000';
+const clientURL = 'http://localhost:4242';
 
 // CORS options
 const corsOptions = {
