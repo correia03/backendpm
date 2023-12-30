@@ -1,3 +1,7 @@
+// CREATE DATABASE pm;
+// CREATE USER 'pm'@'%' IDENTIFIED BY 'pm';
+// GRANT ALL PRIVILEGES ON *.* TO 'pm'@'%' WITH GRANT OPTION;
+// FLUSH PRIVILEGES;
 
 import Sequelize  from "sequelize"; 
 
