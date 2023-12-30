@@ -33,13 +33,8 @@ export const login = async (req, res) => {
     if (!user) {
       return res.status(401).json({ message: 'User nao existe' });
     }
-    const token = createToken({
-      id: user.id,
-      username: user.username,
-    }); // este payload, é o que futuramente vai estar dentro do req.user
-  
-    console.log(token);
-    return res.json({
-      token,
-    });
+    // por numa variavel o user id encontrado
+    const token = user.id;
+    return res.json({ token });
+
   };
