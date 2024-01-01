@@ -8,16 +8,9 @@ import { api } from './routes/index.js';
 import { database } from './config/context/database.js';
 
 //--REST SERVER--//
-const server = express();
+const server = express()
 
-// client can be postman | react website | react localhost link | etc
-const clientURL = 'http://localhost:4242';
-
-// CORS options
-const corsOptions = {
-  origin: clientURL,
-};
-server.use(cors(corsOptions));
+server.use(cors());
 
 // output dados de pedido HTTP - logger
 server.use(morgan('short'));
@@ -35,7 +28,7 @@ try {
 }
 
 // correr server no url host:port definido em .env
-server.listen(process.env.SERVER_PORT, process.env.SERVER_HOST, () => {
+server.listen(process.env.SERVER_PORT, "0.0.0.0", () => {
   console.log(
     'Server up and running at http://%s:%s',
     process.env.SERVER_HOST,
