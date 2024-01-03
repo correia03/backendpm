@@ -2,9 +2,9 @@ import { RotasModel } from "../models/rotas.model.js";
 
 //adicionar uma rota
 export const addrotas = async (req, res) => {
-  const { origem,destino,hora,dia,preço } = req.body;
+  const { origem, destino, hora, dia, preço } = req.body;
   try {
-    const rotas = await rotasmodel.create({
+    const rotas = await RotasModel.create({
       origem,
       destino,
       hora,

@@ -36,6 +36,6 @@ export const login = async (req, res) => {
     // por numa variavel o user id encontrado
     const token = user.id;
     // returnar status suscssefull e o token
-    return res.json({ token });
+    return res.status(200).json({ token });
 
   };

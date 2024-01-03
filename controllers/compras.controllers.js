@@ -15,6 +15,18 @@ export const addcompra = async (req, res) => {
     if (info.saldo < rotas.preço) {
       return res.status(500).json({ message: "saldo insuficiente" });
     }
+    //retirar saldo
+    const saldo = info.saldo - rotas.preço;
+    await InfoModel.update(
+      {
+        saldo: saldo,
+      },
+      {
+        where: {
+          userId: userId,
+        },
+      }
+    );
     const compras = await Compras.create({
       userId,
       rotasId,
@@ -22,7 +34,7 @@ export const addcompra = async (req, res) => {
       mes,
       dia,
     });
-    return res.status(201).json(compras);
+    return res.status(201);
   } catch (error) {
     console.error(error);
     return res.status(500).json({ message: "Internal Server Error" });
